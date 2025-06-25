@@ -1,13 +1,13 @@
-<h1>Rentals</h1>
+<h1>Arriendos</h1>
 
-<%= link_to 'New Rental', new_rental_path %>
+<%= link_to 'Nuevo arriendo', new_rental_path %>
 
 <table>
   <thead>
     <tr>
-      <th>Machinery</th>
-      <th>Start Date</th>
-      <th>End Date</th>
+      <th>Maquinaria</th>
+      <th>Fecha inicio</th>
+      <th>Fecha fin</th>
       <th>Total</th>
       <th colspan="3"></th>
     </tr>
@@ -16,12 +16,11 @@
   <tbody>
     <% @rentals.each do |rental| %>
       <tr>
-        <td><%= rental.machinery.try(:name) %></td>
+        <td><%= rental.machinery.try(:nombre) %></td>
         <td><%= rental.start_date %></td>
         <td><%= rental.end_date %></td>
         <td><%= number_to_currency(rental.total_amount) %></td>
         <td><%= link_to 'Show', rental %></td>
-        <td><%= link_to 'Edit', edit_rental_path(rental) %></td>
         <td><%= link_to 'Delete', rental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
