@@ -1,14 +1,13 @@
-<h1>Rental Details</h1>
+<h1>Detalles de arriendos</h1>
 
-<p><strong>Machinery:</strong> <%= @rental.machinery.try(:nombre) %></p>
-<p><strong>Start Date:</strong> <%= @rental.start_date %></p>
-<p><strong>End Date:</strong> <%= @rental.end_date %></p>
-<p><strong>Payment Method:</strong> <%= @rental.payment_method %></p>
-<p><strong>Status:</strong> <%= @rental.payment_status %></p>
-<p><strong>Discount:</strong> <%= number_to_currency(@rental.discount) %></p>
-<p><strong>Freight:</strong> <%= number_to_currency(@rental.freight) %></p>
-<p><strong>Total Amount:</strong> <%= number_to_currency(@rental.total_amount) %></p>
-<p><strong>Observations:</strong> <%= simple_format(@rental.observations) %></p>
+<p><strong>Maquinaria:</strong> <%= @rental.machinery.try(:nombre) %></p>
+<p><strong>Fecha inicio:</strong> <%= @rental.start_date %></p>
+<p><strong>Fecha fin:</strong> <%= @rental.end_date %></p>
+<p><strong>Metodo de pago:</strong> <%= @rental.payment_method %></p>
+<p><strong>Estado de pago:</strong> <%= @rental.payment_status %></p>
+<p><strong>Descuento:</strong> <%= number_to_currency(@rental.discount) %></p>
+<p><strong>Flete:</strong> <%= number_to_currency(@rental.freight) %></p>
+<p><strong>Total:</strong> <%= number_to_currency(@rental.total_amount) %></p>
+<p><strong>Observaciones:</strong> <%= simple_format(@rental.observations) %></p>
 
-<%= link_to 'Edit', edit_rental_path(@rental) %> |
-<%= link_to 'Back', rentals_path %>
+<%= link_to 'Volver', rentals_path %>

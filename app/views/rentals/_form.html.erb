@@ -1,14 +1,14 @@
 <%= form_with(model: rental, local: true) do |form| %>
   <% if rental.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(rental.errors.count, "error") %> prohibited this rental from being saved:</h2>
-      <ul>
-        <% rental.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <h2><%= pluralize(rental.errors.count, "error") %> impidieron guardar el arriendo:</h2>
+        <ul>
+        <% rental.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
         <% end %>
-      </ul>
+        </ul>
     </div>
-  <% end %>
+    <% end %>
 
   <div>
     <%= form.label :machinery_id, "Maquinaria" %>
@@ -16,32 +16,39 @@
   </div>
 
   <div>
-    <%= form.label :start_date %>
+    <%= form.label :fecha_inicio %>
     <%= form.date_field :start_date %>
   </div>
 
   <div>
-    <%= form.label :end_date %>
+    <%= form.label :fecha_fin %>
     <%= form.date_field :end_date %>
   </div>
 
+  <div id="rental_warning" style="color: red; font-weight: bold;"></div>
+
   <div>
-    <%= form.label :payment_method %>
-    <%= form.text_field :payment_method %>
+    <%= form.label :metodo_de_pago %>
+    <%= form.select :payment_method, ["Efectivo", "Transferencia", "Factura", "Debito", "Boleta"], prompt: "Seleccione un medio de pago" %>
   </div>
 
   <div>
-    <%= form.label :discount %>
+    <%= form.label :tarifa %>
+    <%= form.select :rate, ["Día", "Semana", "Mes"], prompt: "Seleccione una tarifa" %>
+  </div>
+
+  <div>
+    <%= form.label :descuento %>
     <%= form.number_field :discount, step: 0.01 %>
   </div>
 
   <div>
-    <%= form.label :freight %>
+    <%= form.label :flete %>
     <%= form.number_field :freight, step: 0.01 %>
   </div>
 
   <div>
-    <%= form.label :total_amount %>
+    <%= form.label :total %>
     <%= form.number_field :total_amount, step: 0.01 %>
   </div>
 
@@ -49,3 +56,45 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const startDateInput = document.querySelector("#rental_start_date");
+    const endDateInput = document.querySelector("#rental_end_date");
+    const machinerySelect = document.querySelector("#rental_machinery_id");
+    const warningDiv = document.getElementById("rental_warning");
+
+    // Maquinarias cargadas con sus horas disponibles (puedes insertar esto desde Rails)
+    const machineryHoursMap = {
+      <% Machinery.all.each do |m| %>
+        "<%= m.id %>": <%= m.horas_disponibles || 0 %>,
+      <% end %>
+    };
+
+    function checkRentalHours() {
+      const startDate = new Date(startDateInput.value);
+      const endDate = new Date(endDateInput.value);
+      const machineryId = machinerySelect.value;
+
+      if (!startDate || !endDate || !machineryId) {
+        warningDiv.textContent = "";
+        return;
+      }
+
+      const days = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+      const totalHours = days * 8;
+      const availableHours = machineryHoursMap[machineryId];
+
+      if (totalHours > availableHours) {
+        warningDiv.textContent = `⚠️ El arriendo requiere ${totalHours}h pero la maquinaria solo tiene ${availableHours}h disponibles.`;
+      } else {
+        warningDiv.textContent = "";
+      }
+    }
+
+    [startDateInput, endDateInput, machinerySelect].forEach(input => {
+      input.addEventListener("change", checkRentalHours);
+    });
+  });
+</script>
+
