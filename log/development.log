@@ -10833,3 +10833,35 @@ Sent data QR_plataforma-elevadora-genie-gs-1930.png (1.6ms)
 Completed 200 OK in 66ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 35769)
 
 
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:55:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (1.0ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 31.7ms | Allocations: 30958)
+  Rendered layouts/_navigation.html.erb (Duration: 1.3ms | Allocations: 910)
+  Rendered layouts/_footer.html.erb (Duration: 1.4ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 411.4ms | Allocations: 54810)
+Completed 200 OK in 470ms (Views: 413.4ms | ActiveRecord: 21.5ms | Allocations: 88123)
+
+
+Started GET "/rentals" for 127.0.0.1 at 2025-06-25 10:55:20 -0400
+Processing by RentalsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mRental Load (1.6ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals"[0m
+  ↳ app/views/rentals/index.html.erb:17
+  Rendered rentals/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2171)
+  Rendered layouts/_navigation.html.erb (Duration: 0.9ms | Allocations: 295)
+  Rendered layouts/_footer.html.erb (Duration: 1.1ms | Allocations: 500)
+  Rendered layout layouts/application.html.erb (Duration: 240.3ms | Allocations: 4763)
+Completed 200 OK in 255ms (Views: 239.4ms | ActiveRecord: 2.2ms | Allocations: 7606)
+
+

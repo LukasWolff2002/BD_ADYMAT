@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :users
   resources :customers
   resources :machineries
+  resources :rentals
 
   get "qr/scan", to: "qr#scan", as: :qr_scan
 
