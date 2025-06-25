@@ -9673,3 +9673,84 @@ Migrating to CreateMachineries (20250613175327)
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
   [1m[36mMachinery Create (0.4ms)[0m  [1m[32mINSERT INTO "machineries" ("nombre", "formato", "horas_por_mantencion", "horas_totales", "horas_disponibles", "valor_dia", "valor_semana", "valor_mes", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["nombre", "Plataforma Elevadora Genie GS-1930"], ["formato", "Eléctrica"], ["horas_por_mantencion", 150], ["horas_totales", 2000], ["horas_disponibles", 500], ["valor_dia", 90000], ["valor_semana", 480000], ["valor_mes", 1600000], ["created_at", "2025-06-25 14:19:21.807431"], ["updated_at", "2025-06-25 14:19:21.807431"]]
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/machineries" for 127.0.0.1 at 2025-06-25 10:20:45 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MachineriesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+Redirected to http://127.0.0.1:3000/login
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 28ms (ActiveRecord: 11.8ms | Allocations: 14914)
+
+
+Started GET "/login" for 127.0.0.1 at 2025-06-25 10:20:45 -0400
+Processing by SessionsController#new as HTML
+Renderizando formulario de login
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1731)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 1.3ms | Allocations: 923)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 756)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 25553)
+Completed 200 OK in 39ms (Views: 35.8ms | ActiveRecord: 0.2ms | Allocations: 28843)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-06-25 10:20:58 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"rut"=>"123456789", "password"=>"[FILTERED]"}, "commit"=>"Ingresar"}
+Intentando iniciar sesión con parámetros: #<ActionController::Parameters {"authenticity_token"=>"rvmtyc-FKbblJNaeEzIwDvZy1DFoxiOh2_RfQY-9Fxa6P94qhIULphZzK8unKb88mHDJR3Lur_LI7BwkLLk-yQ", "session"=>{"rut"=>"123456789", "password"=>"12345678"}, "commit"=>"Ingresar", "controller"=>"sessions", "action"=>"create"} permitted: false>
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."rut" = $1 LIMIT $2[0m  [["rut", "12.345.678-9"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:21:in `create'
+Sesión temporal iniciada para el usuario 1
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 283ms (ActiveRecord: 4.3ms | Allocations: 7996)
+
+
+Started GET "/" for 127.0.0.1 at 2025-06-25 10:20:59 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 282)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 265)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 2825)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 4031)
+
+
+Started GET "/machineries" for 127.0.0.1 at 2025-06-25 10:21:45 -0400
+Processing by MachineriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/index.html.erb within layouts/application
+  [1m[36mMachinery Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "machineries" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/machineries/index.html.erb:6
+  [1m[36mMachinery Load (0.5ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" ORDER BY "machineries"."created_at" DESC[0m
+  ↳ app/views/machineries/index.html.erb:17
+  Rendered machineries/index.html.erb within layouts/application (Duration: 18.2ms | Allocations: 7837)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 10342)
+Completed 200 OK in 40ms (Views: 20.3ms | ActiveRecord: 4.7ms | Allocations: 14323)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:21:49 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:32:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1640)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 1.3ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4138)
+Completed 200 OK in 23ms (Views: 14.5ms | ActiveRecord: 0.6ms | Allocations: 6158)
+
+
