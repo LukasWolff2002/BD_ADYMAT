@@ -9962,3 +9962,275 @@ Processing by RentalsController#index as HTML
 Completed 200 OK in 94ms (Views: 79.6ms | ActiveRecord: 3.1ms | Allocations: 34912)
 
 
+Started GET "/rentals" for 127.0.0.1 at 2025-06-25 10:36:44 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RentalsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mRental Load (0.6ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals"[0m
+  ↳ app/views/rentals/index.html.erb:17
+  Rendered rentals/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1626)
+  Rendered layouts/_navigation.html.erb (Duration: 1.1ms | Allocations: 788)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 756)
+  Rendered layout layouts/application.html.erb (Duration: 88.3ms | Allocations: 25463)
+Completed 200 OK in 143ms (Views: 91.0ms | ActiveRecord: 7.9ms | Allocations: 51236)
+
+
+Started GET "/rentals/new" for 127.0.0.1 at 2025-06-25 10:36:45 -0400
+Processing by RentalsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/new.html.erb within layouts/application
+  Rendered rentals/_form.html.erb (Duration: 4.0ms | Allocations: 2901)
+  Rendered rentals/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 3157)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3248)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.9ms | Allocations: 11662)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x00007dc1244ab600>::Vehicle):
+    12: 
+    13:   <div>
+    14:     <%= form.label :vehicle_id %>
+    15:     <%= form.collection_select :vehicle_id, Vehicle.all, :id, :name, prompt: "Select a vehicle" %>
+    16:   </div>
+    17: 
+    18:   <div>
+  
+app/views/rentals/_form.html.erb:15
+app/views/rentals/_form.html.erb:1
+app/views/rentals/new.html.erb:2
+Started GET "/rentals/new" for 127.0.0.1 at 2025-06-25 10:38:23 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RentalsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/new.html.erb within layouts/application
+  Rendered rentals/_form.html.erb (Duration: 10.3ms | Allocations: 2812)
+  Rendered rentals/new.html.erb within layouts/application (Duration: 11.1ms | Allocations: 3213)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 3330)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 8.6ms | Allocations: 36392)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `machinery' for #<ActionView::Base:0x0000000000cf80>):
+    12: 
+    13:   <div>
+    14:     <%= form.label :machinery_id %>
+    15:     <%= form.collection_select :machinery_id, machinery.all, :id, :name, prompt: "Select a machinery" %>
+    16:   </div>
+    17: 
+    18:   <div>
+  
+app/views/rentals/_form.html.erb:15
+app/views/rentals/_form.html.erb:1
+app/views/rentals/new.html.erb:2
+Started GET "/rentals/" for 127.0.0.1 at 2025-06-25 10:38:54 -0400
+Processing by RentalsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals"[0m
+  ↳ app/views/rentals/index.html.erb:17
+  Rendered rentals/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 3330)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | Allocations: 775)
+  Rendered layouts/_footer.html.erb (Duration: 0.9ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 60.8ms | Allocations: 26869)
+Completed 200 OK in 64ms (Views: 60.9ms | ActiveRecord: 0.5ms | Allocations: 28039)
+
+
+Started GET "/machineries" for 127.0.0.1 at 2025-06-25 10:38:56 -0400
+Processing by MachineriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/index.html.erb within layouts/application
+  [1m[36mMachinery Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "machineries" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/machineries/index.html.erb:6
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" ORDER BY "machineries"."created_at" DESC[0m
+  ↳ app/views/machineries/index.html.erb:17
+  Rendered machineries/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 7842)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 500)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 10370)
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 2.3ms | Allocations: 12676)
+
+
+Started GET "/machineries/new" for 127.0.0.1 at 2025-06-25 10:38:58 -0400
+Processing by MachineriesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/new.html.erb within layouts/application
+  Rendered machineries/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2703)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 500)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 5227)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 6179)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:39:03 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:32:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2514)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 500)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 5035)
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.4ms | Allocations: 7015)
+
+
+Started GET "/rentals/" for 127.0.0.1 at 2025-06-25 10:39:52 -0400
+Processing by RentalsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/index.html.erb within layouts/application
+  [1m[36mRental Load (0.2ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals"[0m
+  ↳ app/views/rentals/index.html.erb:17
+  Rendered rentals/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 861)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 707)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 728)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4717)
+Completed 200 OK in 16ms (Views: 7.1ms | ActiveRecord: 1.8ms | Allocations: 12405)
+
+
+Started GET "/rentals/new" for 127.0.0.1 at 2025-06-25 10:39:53 -0400
+Processing by RentalsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/new.html.erb within layouts/application
+  Rendered rentals/_form.html.erb (Duration: 1.0ms | Allocations: 1929)
+  Rendered rentals/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 2178)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2269)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.6ms | Allocations: 7754)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `machinery' for #<ActionView::Base:0x00000000012bd8>):
+    12: 
+    13:   <div>
+    14:     <%= form.label :machinery_id %>
+    15:     <%= form.collection_select :machinery_id, machinery.all, :id, :name, prompt: "Select a machinery" %>
+    16:   </div>
+    17: 
+    18:   <div>
+  
+app/views/rentals/_form.html.erb:15
+app/views/rentals/_form.html.erb:1
+app/views/rentals/new.html.erb:2
+Started GET "/rentals/new" for 127.0.0.1 at 2025-06-25 10:40:13 -0400
+Processing by RentalsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/new.html.erb within layouts/application
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries"[0m
+  ↳ app/views/rentals/_form.html.erb:15
+  Rendered rentals/_form.html.erb (Duration: 13.3ms | Allocations: 8988)
+  Rendered rentals/new.html.erb within layouts/application (Duration: 13.8ms | Allocations: 9264)
+  Rendered layouts/_navigation.html.erb (Duration: 1.1ms | Allocations: 699)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 728)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 13095)
+Completed 200 OK in 31ms (Views: 18.0ms | ActiveRecord: 4.7ms | Allocations: 25248)
+
+
+Started GET "/rentals/new" for 127.0.0.1 at 2025-06-25 10:40:45 -0400
+Processing by RentalsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/new.html.erb within layouts/application
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries"[0m
+  ↳ app/views/rentals/_form.html.erb:15
+  Rendered rentals/_form.html.erb (Duration: 7.9ms | Allocations: 7410)
+  Rendered rentals/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 7690)
+  Rendered layouts/_navigation.html.erb (Duration: 0.9ms | Allocations: 699)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 728)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 11521)
+Completed 200 OK in 28ms (Views: 13.6ms | ActiveRecord: 4.6ms | Allocations: 23646)
+
+
+Started GET "/rentals/new" for 127.0.0.1 at 2025-06-25 10:41:21 -0400
+Processing by RentalsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/new.html.erb within layouts/application
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries"[0m
+  ↳ app/views/rentals/_form.html.erb:15
+  Rendered rentals/_form.html.erb (Duration: 7.0ms | Allocations: 7207)
+  Rendered rentals/new.html.erb within layouts/application (Duration: 7.6ms | Allocations: 7483)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | Allocations: 699)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 716)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 11242)
+Completed 200 OK in 25ms (Views: 11.5ms | ActiveRecord: 4.4ms | Allocations: 23328)
+
+
+Started POST "/rentals" for 127.0.0.1 at 2025-06-25 10:41:48 -0400
+Processing by RentalsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "rental"=>{"machinery_id"=>"1", "start_date"=>"2025-06-25", "end_date"=>"2025-06-28", "payment_method"=>"efectivo", "discount"=>"0", "freight"=>"15000", "total_amount"=>"400000"}, "commit"=>"Create Rental"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rentals_controller.rb:17:in `create'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rentals_controller.rb:17:in `create'
+  [1m[36mRental Create (2.2ms)[0m  [1m[32mINSERT INTO "rentals" ("machinery_id", "start_date", "end_date", "payment_method", "payment_status", "observations", "discount", "freight", "total_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["machinery_id", 1], ["start_date", "2025-06-25"], ["end_date", "2025-06-28"], ["payment_method", "efectivo"], ["payment_status", nil], ["observations", nil], ["discount", "0.0"], ["freight", "15000.0"], ["total_amount", "400000.0"], ["created_at", "2025-06-25 14:41:48.811683"], ["updated_at", "2025-06-25 14:41:48.811683"]]
+  ↳ app/controllers/rentals_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rentals_controller.rb:17:in `create'
+Redirected to http://127.0.0.1:3000/rentals/1
+Completed 302 Found in 22ms (ActiveRecord: 4.2ms | Allocations: 9714)
+
+
+Started GET "/rentals/1" for 127.0.0.1 at 2025-06-25 10:41:48 -0400
+Processing by RentalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mRental Load (0.2ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" WHERE "rentals"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rentals_controller.rb:43:in `set_rental'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/show.html.erb within layouts/application
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rentals/show.html.erb:3
+  Rendered rentals/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1328)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 512)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3928)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.5ms | Allocations: 5964)
+
+
+  [1m[36mRental Load (0.2ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/rentals/1" for 127.0.0.1 at 2025-06-25 10:44:25 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RentalsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mRental Load (0.3ms)[0m  [1m[34mSELECT "rentals".* FROM "rentals" WHERE "rentals"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rentals_controller.rb:43:in `set_rental'
+  Rendering layout layouts/application.html.erb
+  Rendering rentals/show.html.erb within layouts/application
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/rentals/show.html.erb:3
+  Rendered rentals/show.html.erb within layouts/application (Duration: 52.5ms | Allocations: 11941)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | Allocations: 773)
+  Rendered layouts/_footer.html.erb (Duration: 0.9ms | Allocations: 756)
+  Rendered layout layouts/application.html.erb (Duration: 103.6ms | Allocations: 35804)
+Completed 200 OK in 167ms (Views: 105.3ms | ActiveRecord: 11.5ms | Allocations: 70051)
+
+
