@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   get 'qr/m/:qr_token', to: 'machineries#show_by_qr', as: :machinery_qr
 
   get 'machineries/:id/download_qr', to: 'machineries#download_qr', as: :download_qr_machinery
+  get "maquinarias/buscar_por_qr", to: "machineries#buscar_por_qr"
+
   resource :password, only: [:edit, :update]
 end

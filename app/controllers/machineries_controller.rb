@@ -33,16 +33,25 @@ end
   end
 
   def download_qr
-  machinery = Machinery.find(params[:id])
-  qr = RQRCode::QRCode.new(machinery_qr_url(machinery.qr_token))
+    machinery = Machinery.find(params[:id])
+    qr = RQRCode::QRCode.new(machinery_qr_url(machinery.qr_token))
 
-  png = qr.as_png(size: 300)
+    png = qr.as_png(size: 300)
 
-  send_data png.to_s,
-            type: 'image/png',
-            disposition: 'attachment',
-            filename: "QR_#{machinery.nombre.parameterize}.png"
-end
+    send_data png.to_s,
+              type: 'image/png',
+              disposition: 'attachment',
+              filename: "QR_#{machinery.nombre.parameterize}.png"
+  end
+
+  def buscar_por_qr
+    machinery = Machinery.find_by(qr_token: params[:qr_token])
+    if machinery
+      render json: { id: machinery.id, nombre: machinery.nombre }
+    else
+      render json: {}, status: :not_found
+    end
+  end
 
 
   private

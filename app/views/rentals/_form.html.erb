@@ -1,19 +1,31 @@
 <%= form_with(model: rental, local: true) do |form| %>
   <% if rental.errors.any? %>
     <div id="error_explanation">
-        <h2><%= pluralize(rental.errors.count, "error") %> impidieron guardar el arriendo:</h2>
-        <ul>
+      <h2><%= pluralize(rental.errors.count, "error") %> impidieron guardar el arriendo:</h2>
+      <ul>
         <% rental.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+          <li><%= msg %></li>
         <% end %>
-        </ul>
+      </ul>
     </div>
-    <% end %>
+  <% end %>
 
-  <div>
+  <!-- Opción manual -->
+  <div id="select_machinery_section">
     <%= form.label :machinery_id, "Maquinaria" %>
     <%= form.collection_select :machinery_id, Machinery.all, :id, :nombre, prompt: "Seleccione una maquinaria" %>
+    <p style="font-size: 0.9em; color: gray;">O escanee el código QR de la maquinaria</p>
   </div>
+
+  <!-- Escaneo QR -->
+  <div>
+    <label>Escanear código QR:</label>
+    <div id="qr-reader" style="width: 300px;"></div>
+    <div id="qr-result" style="color: green; font-weight: bold;"></div>
+  </div>
+
+  <!-- Campo oculto obligatorio -->
+  <%= form.hidden_field :machinery_id, id: "rental_machinery_id" %>
 
   <div>
     <%= form.label :fecha_inicio %>
@@ -57,14 +69,16 @@
   </div>
 <% end %>
 
+<!-- Scripts -->
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const startDateInput = document.querySelector("#rental_start_date");
     const endDateInput = document.querySelector("#rental_end_date");
     const machinerySelect = document.querySelector("#rental_machinery_id");
     const warningDiv = document.getElementById("rental_warning");
+    const selectSection = document.getElementById("select_machinery_section");
 
-    // Maquinarias cargadas con sus horas disponibles (puedes insertar esto desde Rails)
     const machineryHoursMap = {
       <% Machinery.all.each do |m| %>
         "<%= m.id %>": <%= m.horas_disponibles || 0 %>,
@@ -95,6 +109,39 @@
     [startDateInput, endDateInput, machinerySelect].forEach(input => {
       input.addEventListener("change", checkRentalHours);
     });
+
+    // QR Code logic
+    function onScanSuccess(decodedText) {
+      let token = decodedText;
+
+      // Si el QR contiene una URL, extrae el token
+      try {
+        const url = new URL(decodedText);
+        token = url.pathname.split("/").pop();
+      } catch (e) {
+        // No es URL, usar directamente
+      }
+
+      fetch(`/maquinarias/buscar_por_qr?qr_token=${token}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.id) {
+            machinerySelect.value = data.id;
+            machinerySelect.dispatchEvent(new Event("change"));
+            document.getElementById("qr-result").innerText = `✅ Maquinaria seleccionada: ${data.nombre}`;
+            selectSection.style.display = "none";
+          } else {
+            document.getElementById("qr-result").innerText = "⚠️ Código QR no válido o maquinaria no encontrada.";
+          }
+        })
+        .catch(() => {
+          document.getElementById("qr-result").innerText = "⚠️ Error al buscar maquinaria.";
+        });
+    }
+
+    // 💡 Esta línea faltaba:
+    const qrScanner = new Html5QrcodeScanner("qr-reader", { fps: 10, qrbox: 250 });
+    qrScanner.render(onScanSuccess);
   });
 </script>
 
