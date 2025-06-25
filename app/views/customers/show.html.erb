@@ -1,0 +1,8 @@
+<div class="container mt-4">
+  <h1 class="fw-bold text-primary">Detalle del Cliente</h1>
+
+  <p><strong>Nombre:</strong> <%= @customer.nombre %></p>
+  <p><strong>RUT:</strong> <%= @customer.rut %></p>
+
+  <%= link_to 'Volver', customers_path, class: 'btn btn-secondary' %>
+</div>

@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h1 class="fw-bold text-primary">Clientes</h1>
+
+  <%= link_to 'Nuevo Cliente', new_customer_path, class: 'btn btn-primary mb-3' %>
+
+  <% if @customers.any? %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>RUT</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td><%= customer.nombre %></td>
+            <td><%= customer.rut %></td>
+            <td>
+  <%= link_to 'Ver', customer_path(customer), class: 'btn btn-sm btn-outline-secondary me-2' %>
+ <%= button_to 'Eliminar', customer_path(customer), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-sm btn-danger' %>
+
+</td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="alert alert-warning text-center">No hay clientes registrados.</div>
+  <% end %>
+</div>

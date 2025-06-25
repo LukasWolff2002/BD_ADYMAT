@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h1 class="fw-bold text-primary">Nuevo Cliente</h1>
+
+  <%= form_with model: @customer, local: true do |form| %>
+    <div class="mb-3">
+      <%= form.label :nombre, class: "form-label" %>
+      <%= form.text_field :nombre, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :rut, class: "form-label" %>
+      <%= form.text_field :rut, class: "form-control", required: true %>
+    </div>
+
+    <%= form.submit 'Guardar', class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to 'Volver', customers_path, class: 'btn btn-secondary mt-3' %>
+</div>
