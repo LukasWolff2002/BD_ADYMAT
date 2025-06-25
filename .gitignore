@@ -1,0 +1,75 @@
+# Archivos generales del sistema
+.DS_Store
+Thumbs.db
+
+# Logs y temporales
+/log/*
+!/log/.keep
+/tmp/*
+!/tmp/.keep
+
+# Base de datos SQLite (si se usa)
+*.sqlite3
+*.sqlite3-journal
+
+# Archivos de secretos y credenciales
+/config/master.key
+/config/credentials.yml.enc
+
+# Archivos de entorno local
+.env
+.env.*
+
+# Archivos de pids y sockets
+/tmp/pids/*
+/tmp/sockets/*
+
+# Archivos de compilación de Rails
+/public/assets
+/public/packs
+/public/packs-test
+/public/packs-dev
+/node_modules
+/yarn-error.log
+
+# Caches y demás
+.byebug_history
+/coverage/
+/spec/examples.txt
+
+# Archivos de bundler
+/vendor/bundle
+
+# Archivos de pruebas o CI
+/.rspec
+.rspec_status
+
+# ActiveStorage
+/storage/*
+!/storage/.keep
+
+# Sistema de gestión de tareas programadas (whenever)
+config/schedule.rb~
+
+# Archivos de IDEs
+.idea/
+.vscode/
+*.swp
+*.bak
+
+# Documentos de desarrollo local
+*.log
+*.tmp
+
+# Ignorar archivos de Turbo/Stimulus si compilas con jsbundling-rails
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+# Webpacker (si aún lo usas)
+public/packs
+public/packs-test
+node_modules/
+yarn-error.log
+
+# Capistrano
+capistrano-log.txt
