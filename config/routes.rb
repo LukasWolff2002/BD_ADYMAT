@@ -18,19 +18,6 @@ Rails.application.routes.draw do
   resources :users
   resources :customers
   resources :machineries
-<<<<<<< HEAD
-
-  get "qr/scan", to: "qr#scan", as: :qr_scan
-
-  get 'qr/m/:qr_token', to: 'machineries#show_by_qr', as: :machinery_qr
-
-  get 'machineries/:id/download_qr', to: 'machineries#download_qr', as: :download_qr_machinery
-
-
-
-
-=======
   resources :rentals
->>>>>>> ramaLucas
   resource :password, only: [:edit, :update]
 end
