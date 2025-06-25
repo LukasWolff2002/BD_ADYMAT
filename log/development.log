@@ -9876,3 +9876,826 @@ FOREIGN KEY ("machinery_id")
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mMachinery Create (0.7ms)[0m  [1m[32mINSERT INTO "machineries" ("nombre", "formato", "horas_por_mantencion", "horas_totales", "horas_disponibles", "valor_dia", "valor_semana", "valor_mes", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["nombre", "Plataforma Elevadora Genie GS-1930"], ["formato", "Eléctrica"], ["horas_por_mantencion", 150], ["horas_totales", 2000], ["horas_disponibles", 500], ["valor_dia", 90000], ["valor_semana", 480000], ["valor_mes", 1600000], ["created_at", "2025-06-25 14:28:39.599194"], ["updated_at", "2025-06-25 14:28:39.599194"]]
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:29:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.7ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:32:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1919)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 767)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 754)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 25714)
+Completed 200 OK in 85ms (Views: 22.5ms | ActiveRecord: 19.4ms | Allocations: 58370)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:29:38 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:32:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 414)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.8ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2912)
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 0.7ms | Allocations: 4301)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (88.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "template_kanuf_development"[0m
+  [1m[35m (20.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "template_kanuf_test"[0m
+  [1m[35m (54.1ms)[0m  [1m[35mCREATE DATABASE "template_kanuf_development" ENCODING = 'unicode'[0m
+  [1m[35m (50.0ms)[0m  [1m[35mCREATE DATABASE "template_kanuf_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7846129991347427535)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-06-25 14:31:55.289972', '2025-06-25 14:31:55.289976') RETURNING "key"[0m
+Migrating to CreateUsers (20250613175325)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "nombre" character varying, "apellido" character varying, "rut" character varying NOT NULL, "email" character varying NOT NULL, "cargo" character varying, "password_digest" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_users_on_cargo" ON "users" ("cargo")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_users_on_rut" ON "users" ("rut")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250613175325') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCustomers (20250613175326)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "customers" ("id" bigserial primary key, "nombre" character varying, "rut" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250613175326') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMachineries (20250613175327)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7846129991347427535)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (63.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "template_kanuf_development"[0m
+  [1m[35m (20.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "template_kanuf_test"[0m
+  [1m[35m (47.5ms)[0m  [1m[35mCREATE DATABASE "template_kanuf_development" ENCODING = 'unicode'[0m
+  [1m[35m (48.2ms)[0m  [1m[35mCREATE DATABASE "template_kanuf_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7846129991347427535)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-06-25 14:32:39.572190', '2025-06-25 14:32:39.572199') RETURNING "key"[0m
+Migrating to CreateUsers (20250613175325)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "nombre" character varying, "apellido" character varying, "rut" character varying NOT NULL, "email" character varying NOT NULL, "cargo" character varying, "password_digest" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_users_on_cargo" ON "users" ("cargo")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_users_on_rut" ON "users" ("rut")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250613175325') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCustomers (20250613175326)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "customers" ("id" bigserial primary key, "nombre" character varying, "rut" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250613175326') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMachineries (20250613175327)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "machineries" ("id" bigserial primary key, "nombre" character varying, "formato" character varying, "horas_por_mantencion" integer, "horas_totales" integer, "horas_disponibles" integer, "valor_dia" integer, "valor_semana" integer, "valor_mes" integer, "qr_token" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_machineries_on_qr_token" ON "machineries" ("qr_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250613175327') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRentals (20250625140709)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "rentals" ("id" bigserial primary key, "machinery_id" bigint NOT NULL, "start_date" date, "end_date" date, "payment_method" character varying, "payment_status" character varying, "observations" text, "discount" decimal(10,2), "freight" decimal(10,2), "total_amount" decimal(15,2), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_61e83bcee9"
+FOREIGN KEY ("machinery_id")
+  REFERENCES "machineries" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_rentals_on_machinery_id" ON "rentals" ("machinery_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250625140709') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(7846129991347427535)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Delete All (0.2ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mCustomer Delete All (0.1ms)[0m  [1m[31mDELETE FROM "customers"[0m
+  [1m[36mMachinery Delete All (0.1ms)[0m  [1m[31mDELETE FROM "machineries"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."rut" = $1 LIMIT $2[0m  [["rut", "12.345.678-9"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("nombre", "apellido", "rut", "email", "cargo", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["nombre", "Lukas"], ["apellido", "Wolff"], ["rut", "12.345.678-9"], ["email", "lukas@example.com"], ["cargo", "admin"], ["password_digest", "[FILTERED]"], ["created_at", "2025-06-25 14:32:39.879500"], ["updated_at", "2025-06-25 14:32:39.879500"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."rut" = $1 LIMIT $2[0m  [["rut", "98.765.432-1"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("nombre", "apellido", "rut", "email", "cargo", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["nombre", "Ana"], ["apellido", "Pérez"], ["rut", "98.765.432-1"], ["email", "ana@example.com"], ["cargo", "cargo1"], ["password_digest", "[FILTERED]"], ["created_at", "2025-06-25 14:32:40.124148"], ["updated_at", "2025-06-25 14:32:40.124148"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."rut" = $1 LIMIT $2[0m  [["rut", "11.222.333-4"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("nombre", "apellido", "rut", "email", "cargo", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["nombre", "Carlos"], ["apellido", "Díaz"], ["rut", "11.222.333-4"], ["email", "carlos@example.com"], ["cargo", "cargo2"], ["password_digest", "[FILTERED]"], ["created_at", "2025-06-25 14:32:40.366090"], ["updated_at", "2025-06-25 14:32:40.366090"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "customers" WHERE "customers"."rut" = $1 LIMIT $2[0m  [["rut", "76.543.210-9"], ["LIMIT", 1]]
+  [1m[36mCustomer Create (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("nombre", "rut", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["nombre", "Constructora El Roble"], ["rut", "76.543.210-9"], ["created_at", "2025-06-25 14:32:40.372457"], ["updated_at", "2025-06-25 14:32:40.372457"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "customers" WHERE "customers"."rut" = $1 LIMIT $2[0m  [["rut", "65.432.109-8"], ["LIMIT", 1]]
+  [1m[36mCustomer Create (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("nombre", "rut", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["nombre", "Inversiones Andes"], ["rut", "65.432.109-8"], ["created_at", "2025-06-25 14:32:40.374837"], ["updated_at", "2025-06-25 14:32:40.374837"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCustomer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "customers" WHERE "customers"."rut" = $1 LIMIT $2[0m  [["rut", "54.321.098-7"], ["LIMIT", 1]]
+  [1m[36mCustomer Create (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("nombre", "rut", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["nombre", "Servicios Forestales Sur"], ["rut", "54.321.098-7"], ["created_at", "2025-06-25 14:32:40.376756"], ["updated_at", "2025-06-25 14:32:40.376756"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMachinery Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "machineries" WHERE "machineries"."qr_token" = $1 LIMIT $2[0m  [["qr_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mMachinery Create (0.6ms)[0m  [1m[32mINSERT INTO "machineries" ("nombre", "formato", "horas_por_mantencion", "horas_totales", "horas_disponibles", "valor_dia", "valor_semana", "valor_mes", "qr_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["nombre", "Excavadora Komatsu PC210"], ["formato", "Estándar"], ["horas_por_mantencion", 250], ["horas_totales", 3000], ["horas_disponibles", 1500], ["valor_dia", 180000], ["valor_semana", 950000], ["valor_mes", 3500000], ["qr_token", "[FILTERED]"], ["created_at", "2025-06-25 14:32:40.382886"], ["updated_at", "2025-06-25 14:32:40.382886"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMachinery Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "machineries" WHERE "machineries"."qr_token" = $1 LIMIT $2[0m  [["qr_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mMachinery Create (0.2ms)[0m  [1m[32mINSERT INTO "machineries" ("nombre", "formato", "horas_por_mantencion", "horas_totales", "horas_disponibles", "valor_dia", "valor_semana", "valor_mes", "qr_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["nombre", "Retroexcavadora Caterpillar 420F2"], ["formato", "Compacta"], ["horas_por_mantencion", 200], ["horas_totales", 2500], ["horas_disponibles", 1200], ["valor_dia", 140000], ["valor_semana", 800000], ["valor_mes", 2900000], ["qr_token", "[FILTERED]"], ["created_at", "2025-06-25 14:32:40.385372"], ["updated_at", "2025-06-25 14:32:40.385372"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMachinery Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "machineries" WHERE "machineries"."qr_token" = $1 LIMIT $2[0m  [["qr_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mMachinery Create (0.2ms)[0m  [1m[32mINSERT INTO "machineries" ("nombre", "formato", "horas_por_mantencion", "horas_totales", "horas_disponibles", "valor_dia", "valor_semana", "valor_mes", "qr_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["nombre", "Plataforma Elevadora Genie GS-1930"], ["formato", "Eléctrica"], ["horas_por_mantencion", 150], ["horas_totales", 2000], ["horas_disponibles", 500], ["valor_dia", 90000], ["valor_semana", 480000], ["valor_mes", 1600000], ["qr_token", "[FILTERED]"], ["created_at", "2025-06-25 14:32:40.387372"], ["updated_at", "2025-06-25 14:32:40.387372"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:33:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.9ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 30.7ms | Allocations: 30841)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 772)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 753)
+  Rendered layout layouts/application.html.erb (Duration: 48.1ms | Allocations: 54697)
+Completed 200 OK in 111ms (Views: 57.5ms | ActiveRecord: 17.0ms | Allocations: 87962)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:33:56 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 51.8ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 55.2ms | Allocations: 31563)
+Completed 200 OK in 62ms (Views: 55.6ms | ActiveRecord: 0.9ms | Allocations: 32943)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:33:56 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.5ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 34.6ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 36.7ms | Allocations: 31563)
+Completed 200 OK in 39ms (Views: 36.9ms | ActiveRecord: 0.8ms | Allocations: 32909)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:34:06 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.1ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 28.6ms | Allocations: 29427)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 705)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 723)
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 33210)
+Completed 200 OK in 44ms (Views: 31.9ms | ActiveRecord: 6.6ms | Allocations: 46222)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:34:07 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 55.5ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 59.4ms | Allocations: 31563)
+Completed 200 OK in 65ms (Views: 59.8ms | ActiveRecord: 0.7ms | Allocations: 32922)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:34:07 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 41.1ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 43.0ms | Allocations: 31563)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.7ms | Allocations: 32930)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:34:07 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.1ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 39.0ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 243)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 507)
+  Rendered layout layouts/application.html.erb (Duration: 41.6ms | Allocations: 31592)
+Completed 200 OK in 44ms (Views: 41.8ms | ActiveRecord: 0.2ms | Allocations: 32951)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:36:24 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.1ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 29.1ms | Allocations: 29426)
+  Rendered layouts/_navigation.html.erb (Duration: 1.3ms | Allocations: 1944)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 33534)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 10.1ms | Allocations: 46548)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `qr_scan_path' for #<ActionView::Base:0x00000000016800>):
+    35:               <li><%= link_to machineries_path, class: "dropdown-item" do %>
+    36:                 <i class="bi bi-list-ol"></i> Equipos
+    37:               <% end %></li>
+    38:               <li><%= link_to qr_scan_path, class: "dropdown-item" do %>
+    39:                 <i class="bi bi-qr-code-scan"></i> Escanear QR
+    40:               <% end %></li>
+    41:             </ul>
+  
+app/views/layouts/_navigation.html.erb:38
+app/views/layouts/application.html.erb:32
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:36:47 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.1ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 1588)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1680)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 4.5ms | Allocations: 14669)
+
+
+  
+ActionView::Template::Error (undefined method `machinery_qr_url' for #<ActionView::Base:0x0000000001b7d8>):
+    14: 
+    15:   <h4 class="fw-bold">Código QR de acceso interno</h4>
+    16:   <% require 'rqrcode' %>
+    17:   <% qr = RQRCode::QRCode.new(machinery_qr_url(@machinery.qr_token)) %>
+    18: 
+    19:   <div class="mt-2 mb-4 border rounded p-3 d-inline-block bg-white shadow-sm">
+    20:     <%= raw qr.as_svg(module_size: 5, standalone: true) %>
+  
+app/views/machineries/show.html.erb:17
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:36:48 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1334)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1425)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 2760)
+
+
+  
+ActionView::Template::Error (undefined method `machinery_qr_url' for #<ActionView::Base:0x0000000001bad0>):
+    14: 
+    15:   <h4 class="fw-bold">Código QR de acceso interno</h4>
+    16:   <% require 'rqrcode' %>
+    17:   <% qr = RQRCode::QRCode.new(machinery_qr_url(@machinery.qr_token)) %>
+    18: 
+    19:   <div class="mt-2 mb-4 border rounded p-3 d-inline-block bg-white shadow-sm">
+    20:     <%= raw qr.as_svg(module_size: 5, standalone: true) %>
+  
+app/views/machineries/show.html.erb:17
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:36:48 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.1ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1331)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1422)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.3ms | Allocations: 2755)
+
+
+  
+ActionView::Template::Error (undefined method `machinery_qr_url' for #<ActionView::Base:0x0000000001bda0>):
+    14: 
+    15:   <h4 class="fw-bold">Código QR de acceso interno</h4>
+    16:   <% require 'rqrcode' %>
+    17:   <% qr = RQRCode::QRCode.new(machinery_qr_url(@machinery.qr_token)) %>
+    18: 
+    19:   <div class="mt-2 mb-4 border rounded p-3 d-inline-block bg-white shadow-sm">
+    20:     <%= raw qr.as_svg(module_size: 5, standalone: true) %>
+  
+app/views/machineries/show.html.erb:17
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:36:48 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 1333)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | Allocations: 1424)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 5.0ms | Allocations: 7199)
+
+
+  
+ActionView::Template::Error (undefined method `machinery_qr_url' for #<ActionView::Base:0x0000000001c0e8>):
+    14: 
+    15:   <h4 class="fw-bold">Código QR de acceso interno</h4>
+    16:   <% require 'rqrcode' %>
+    17:   <% qr = RQRCode::QRCode.new(machinery_qr_url(@machinery.qr_token)) %>
+    18: 
+    19:   <div class="mt-2 mb-4 border rounded p-3 d-inline-block bg-white shadow-sm">
+    20:     <%= raw qr.as_svg(module_size: 5, standalone: true) %>
+  
+app/views/machineries/show.html.erb:17
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:36:49 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 1333)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 2025)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms | Allocations: 9107)
+
+
+  
+ActionView::Template::Error (undefined method `machinery_qr_url' for #<ActionView::Base:0x0000000001c188>):
+    14: 
+    15:   <h4 class="fw-bold">Código QR de acceso interno</h4>
+    16:   <% require 'rqrcode' %>
+    17:   <% qr = RQRCode::QRCode.new(machinery_qr_url(@machinery.qr_token)) %>
+    18: 
+    19:   <div class="mt-2 mb-4 border rounded p-3 d-inline-block bg-white shadow-sm">
+    20:     <%= raw qr.as_svg(module_size: 5, standalone: true) %>
+  
+app/views/machineries/show.html.erb:17
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:36:49 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.5ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 1333)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 1509)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.8ms | Allocations: 5396)
+
+
+  
+ActionView::Template::Error (undefined method `machinery_qr_url' for #<ActionView::Base:0x0000000001c5c0>):
+    14: 
+    15:   <h4 class="fw-bold">Código QR de acceso interno</h4>
+    16:   <% require 'rqrcode' %>
+    17:   <% qr = RQRCode::QRCode.new(machinery_qr_url(@machinery.qr_token)) %>
+    18: 
+    19:   <div class="mt-2 mb-4 border rounded p-3 d-inline-block bg-white shadow-sm">
+    20:     <%= raw qr.as_svg(module_size: 5, standalone: true) %>
+  
+app/views/machineries/show.html.erb:17
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:37:12 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 29.1ms | Allocations: 29422)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 1586)
+  Rendered layout layouts/application.html.erb (Duration: 30.9ms | Allocations: 33184)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 17.4ms | Allocations: 46268)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `qr_scan_path' for #<ActionView::Base:0x000000000216b0>):
+    35:               <li><%= link_to machineries_path, class: "dropdown-item" do %>
+    36:                 <i class="bi bi-list-ol"></i> Equipos
+    37:               <% end %></li>
+    38:               <li><%= link_to qr_scan_path, class: "dropdown-item" do %>
+    39:                 <i class="bi bi-qr-code-scan"></i> Escanear QR
+    40:               <% end %></li>
+    41:             </ul>
+  
+app/views/layouts/_navigation.html.erb:38
+app/views/layouts/application.html.erb:32
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:37:13 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 61.0ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 1177)
+  Rendered layout layouts/application.html.erb (Duration: 63.5ms | Allocations: 31908)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.6ms | Allocations: 33243)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `qr_scan_path' for #<ActionView::Base:0x00000000021980>):
+    35:               <li><%= link_to machineries_path, class: "dropdown-item" do %>
+    36:                 <i class="bi bi-list-ol"></i> Equipos
+    37:               <% end %></li>
+    38:               <li><%= link_to qr_scan_path, class: "dropdown-item" do %>
+    39:                 <i class="bi bi-qr-code-scan"></i> Escanear QR
+    40:               <% end %></li>
+    41:             </ul>
+  
+app/views/layouts/_navigation.html.erb:38
+app/views/layouts/application.html.erb:32
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:37:13 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 28.2ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 1177)
+  Rendered layout layouts/application.html.erb (Duration: 29.4ms | Allocations: 31908)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.3ms | Allocations: 34056)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `qr_scan_path' for #<ActionView::Base:0x00000000021c78>):
+    35:               <li><%= link_to machineries_path, class: "dropdown-item" do %>
+    36:                 <i class="bi bi-list-ol"></i> Equipos
+    37:               <% end %></li>
+    38:               <li><%= link_to qr_scan_path, class: "dropdown-item" do %>
+    39:                 <i class="bi bi-qr-code-scan"></i> Escanear QR
+    40:               <% end %></li>
+    41:             </ul>
+  
+app/views/layouts/_navigation.html.erb:38
+app/views/layouts/application.html.erb:32
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:37:34 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.7ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 30.9ms | Allocations: 30839)
+  Rendered layouts/_navigation.html.erb (Duration: 1.2ms | Allocations: 1981)
+  Rendered layout layouts/application.html.erb (Duration: 46.2ms | Allocations: 54792)
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 20.3ms | Allocations: 87984)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `qr_scan_path' for #<ActionView::Base:0x0000000000cd00>):
+    35:               <li><%= link_to machineries_path, class: "dropdown-item" do %>
+    36:                 <i class="bi bi-list-ol"></i> Equipos
+    37:               <% end %></li>
+    38:               <li><%= link_to qr_scan_path, class: "dropdown-item" do %>
+    39:                 <i class="bi bi-qr-code-scan"></i> Escanear QR
+    40:               <% end %></li>
+    41:             </ul>
+  
+app/views/layouts/_navigation.html.erb:38
+app/views/layouts/application.html.erb:32
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:37:34 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.5ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 27.8ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 1178)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 39211)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 7.8ms | Allocations: 108540)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `qr_scan_path' for #<ActionView::Base:0x0000000000cdf0>):
+    35:               <li><%= link_to machineries_path, class: "dropdown-item" do %>
+    36:                 <i class="bi bi-list-ol"></i> Equipos
+    37:               <% end %></li>
+    38:               <li><%= link_to qr_scan_path, class: "dropdown-item" do %>
+    39:                 <i class="bi bi-qr-code-scan"></i> Escanear QR
+    40:               <% end %></li>
+    41:             </ul>
+  
+app/views/layouts/_navigation.html.erb:38
+app/views/layouts/application.html.erb:32
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:37:48 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 28.9ms | Allocations: 29426)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 804)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 755)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 33363)
+Completed 200 OK in 53ms (Views: 32.5ms | ActiveRecord: 14.2ms | Allocations: 46516)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:37:48 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.4ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 53.7ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 268)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 56.1ms | Allocations: 31588)
+Completed 200 OK in 62ms (Views: 56.5ms | ActiveRecord: 0.9ms | Allocations: 32959)
+
+
+Started GET "/qr/scan" for 127.0.0.1 at 2025-06-25 10:37:52 -0400
+Processing by QrController#scan as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering qr/scan.html.erb within layouts/application
+  Rendered qr/scan.html.erb within layouts/application (Duration: 0.6ms | Allocations: 133)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 289)
+  Rendered layouts/_footer.html.erb (Duration: 1.0ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 2695)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.2ms | Allocations: 3903)
+
+
+Started GET "/" for 127.0.0.1 at 2025-06-25 10:38:10 -0400
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 274)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 267)
+  Rendered layouts/_footer.html.erb (Duration: 0.7ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 2813)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 3941)
+
+
+Started GET "/qr/scan" for 127.0.0.1 at 2025-06-25 10:38:12 -0400
+Processing by QrController#scan as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering qr/scan.html.erb within layouts/application
+  Rendered qr/scan.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | Allocations: 281)
+  Rendered layouts/_footer.html.erb (Duration: 1.0ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 2546)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.4ms | Allocations: 3474)
+
+
+Started GET "/machineries" for 127.0.0.1 at 2025-06-25 10:38:19 -0400
+Processing by MachineriesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/index.html.erb within layouts/application
+  [1m[36mMachinery Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "machineries" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/machineries/index.html.erb:6
+  [1m[36mMachinery Load (0.4ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" ORDER BY "machineries"."created_at" DESC[0m
+  ↳ app/views/machineries/index.html.erb:17
+  Rendered machineries/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1850)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 268)
+  Rendered layouts/_footer.html.erb (Duration: 1.1ms | Allocations: 507)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4400)
+Completed 200 OK in 22ms (Views: 10.3ms | ActiveRecord: 0.9ms | Allocations: 5481)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:38:20 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.4ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:38:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 45.4ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 268)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 507)
+  Rendered layout layouts/application.html.erb (Duration: 48.1ms | Allocations: 31611)
+Completed 200 OK in 53ms (Views: 48.7ms | ActiveRecord: 0.5ms | Allocations: 32991)
+
+
+Started GET "/qr/m/71a381f6a6affcef8da3" for 127.0.0.1 at 2025-06-25 10:38:29 -0400
+Processing by MachineriesController#show_by_qr as HTML
+  Parameters: {"qr_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."qr_token" = $1 LIMIT $2[0m  [["qr_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:9:in `show_by_qr'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 59.1ms | Allocations: 29065)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 268)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 61.6ms | Allocations: 31589)
+Completed 200 OK in 66ms (Views: 62.2ms | ActiveRecord: 0.4ms | Allocations: 33073)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:39:37 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.4ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 30.6ms | Allocations: 30359)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | Allocations: 30451)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 9.3ms | Allocations: 43463)
+
+
+  
+ActionView::Template::Error (undefined method `download_qr_machinery_path' for #<ActionView::Base:0x000000000172c8>):
+    21:    
+    22:   </div>
+    23: 
+    24:     <%= link_to download_qr_machinery_path(@machinery), class: "btn btn-outline-dark mt-3", target: "_blank" do %>
+    25:   <i class="bi bi-download"></i> Descargar QR
+    26: <% end %>
+    27: 
+  
+app/views/machineries/show.html.erb:24
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:39:38 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.4ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 58.0ms | Allocations: 30032)
+  Rendered layout layouts/application.html.erb (Duration: 58.3ms | Allocations: 30123)
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 0.7ms | Allocations: 31479)
+
+
+  
+ActionView::Template::Error (undefined method `download_qr_machinery_path' for #<ActionView::Base:0x000000000175e8>):
+    21:    
+    22:   </div>
+    23: 
+    24:     <%= link_to download_qr_machinery_path(@machinery), class: "btn btn-outline-dark mt-3", target: "_blank" do %>
+    25:   <i class="bi bi-download"></i> Descargar QR
+    26: <% end %>
+    27: 
+  
+app/views/machineries/show.html.erb:24
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:40:33 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.1ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 30.0ms | Allocations: 30361)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 30453)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 7.0ms | Allocations: 43462)
+
+
+  
+ActionView::Template::Error (undefined method `download_qr_machinery_path' for #<ActionView::Base:0x0000000001c688>):
+    24:   </div>
+    25: 
+    26:   <div class="mt-3">
+    27:     <%= link_to download_qr_machinery_path(@machinery), class: "btn btn-outline-dark me-2", target: "_blank" do %>
+    28:       <i class="bi bi-download"></i> Descargar QR
+    29:     <% end %>
+    30: 
+  
+app/views/machineries/show.html.erb:27
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:40:33 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.1ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 42.6ms | Allocations: 30030)
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | Allocations: 30121)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.2ms | Allocations: 31477)
+
+
+  
+ActionView::Template::Error (undefined method `download_qr_machinery_path' for #<ActionView::Base:0x0000000001c9a8>):
+    24:   </div>
+    25: 
+    26:   <div class="mt-3">
+    27:     <%= link_to download_qr_machinery_path(@machinery), class: "btn btn-outline-dark me-2", target: "_blank" do %>
+    28:       <i class="bi bi-download"></i> Descargar QR
+    29:     <% end %>
+    30: 
+  
+app/views/machineries/show.html.erb:27
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:40:51 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.1ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 28.1ms | Allocations: 29520)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 779)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 723)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 33373)
+Completed 200 OK in 46ms (Views: 31.8ms | ActiveRecord: 8.6ms | Allocations: 46390)
+
+
+Started GET "/machineries/3/download_qr" for 127.0.0.1 at 2025-06-25 10:40:53 -0400
+Processing by MachineriesController#download_qr as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:36:in `download_qr'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | Allocations: 3)
+Sent data QR_plataforma-elevadora-genie-gs-1930.png (1.6ms)
+Completed 200 OK in 66ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 35769)
+
+

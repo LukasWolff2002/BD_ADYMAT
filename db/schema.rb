@@ -30,8 +30,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_25_140709) do
     t.integer "valor_dia"
     t.integer "valor_semana"
     t.integer "valor_mes"
+    t.string "qr_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["qr_token"], name: "index_machineries_on_qr_token", unique: true
   end
 
   create_table "rentals", force: :cascade do |t|

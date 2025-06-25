@@ -5,6 +5,12 @@ class MachineriesController < ApplicationController
     @machineries = Machinery.order(created_at: :desc)
   end
 
+  def show_by_qr
+    @machinery = Machinery.find_by!(qr_token: params[:qr_token])
+    render :show  # reutiliza la vista show
+end
+
+
   def new
     @machinery = Machinery.new
   end
@@ -25,6 +31,19 @@ class MachineriesController < ApplicationController
     @machinery.destroy
     redirect_to machineries_path, notice: 'Maquinaria eliminada exitosamente.'
   end
+
+  def download_qr
+  machinery = Machinery.find(params[:id])
+  qr = RQRCode::QRCode.new(machinery_qr_url(machinery.qr_token))
+
+  png = qr.as_png(size: 300)
+
+  send_data png.to_s,
+            type: 'image/png',
+            disposition: 'attachment',
+            filename: "QR_#{machinery.nombre.parameterize}.png"
+end
+
 
   private
 

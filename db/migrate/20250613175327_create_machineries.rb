@@ -9,7 +9,9 @@ class CreateMachineries < ActiveRecord::Migration[7.1]
       t.integer :valor_dia
       t.integer :valor_semana
       t.integer :valor_mes
+      t.string :qr_token, null: false
       t.timestamps
     end
+    add_index :machineries, :qr_token, unique: true
   end
 end
