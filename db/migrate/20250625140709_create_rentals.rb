@@ -1,7 +1,7 @@
 class CreateRentals < ActiveRecord::Migration[7.1]
   def change
     create_table :rentals do |t|
-      t.references :vehicle, null: false, foreign_key: true
+      t.references :machinery, null: false, foreign_key: true
       t.date :start_date                 # fecha inicio
       t.date :end_date                   # fecha fin
       t.string :payment_method          # medio de pago (por ejemplo: "efectivo", "transferencia", etc.)

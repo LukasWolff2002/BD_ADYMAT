@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_13_175327) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_25_140709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,21 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_13_175327) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rentals", force: :cascade do |t|
+    t.bigint "machinery_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.string "payment_method"
+    t.string "payment_status"
+    t.text "observations"
+    t.decimal "discount", precision: 10, scale: 2
+    t.decimal "freight", precision: 10, scale: 2
+    t.decimal "total_amount", precision: 15, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["machinery_id"], name: "index_rentals_on_machinery_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "nombre"
     t.string "apellido"
@@ -47,4 +62,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_13_175327) do
     t.index ["rut"], name: "index_users_on_rut"
   end
 
+  add_foreign_key "rentals", "machineries"
 end
