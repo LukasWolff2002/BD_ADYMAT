@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :customers
+  resources :machineries
 
   resource :password, only: [:edit, :update]
 end

@@ -1,0 +1,13 @@
+<div class="container mt-4">
+  <h1 class="fw-bold text-primary">Detalle de Maquinaria</h1>
+
+  <p><strong>Nombre:</strong> <%= @machinery.nombre %></p>
+  <p><strong>Formato:</strong> <%= @machinery.formato %></p>
+  <p><strong>Horas por mantención:</strong> <%= @machinery.horas_por_mantencion %></p>
+  <p><strong>Valor por día:</strong> <%= number_to_currency(@machinery.valor_dia, unit: "$") %></p>
+  <p><strong>Valor por semana:</strong> <%= number_to_currency(@machinery.valor_semana, unit: "$") %></p>
+  <p><strong>Valor por mes:</strong> <%= number_to_currency(@machinery.valor_mes, unit: "$") %></p>
+
+  <%= link_to 'Volver', machineries_path, class: 'btn btn-secondary' %>
+  
+</div>

@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h1 class="fw-bold text-primary">Nueva Maquinaria</h1>
+
+  <%= form_with model: @machinery, local: true do |form| %>
+    <div class="mb-3">
+      <%= form.label :nombre, class: "form-label" %>
+      <%= form.text_field :nombre, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :formato, class: "form-label" %>
+      <%= form.text_field :formato, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :horas_por_mantencion, class: "form-label" %>
+      <%= form.number_field :horas_por_mantencion, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :valor_dia, class: "form-label" %>
+      <%= form.number_field :valor_dia, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :valor_semana, class: "form-label" %>
+      <%= form.number_field :valor_semana, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :valor_mes, class: "form-label" %>
+      <%= form.number_field :valor_mes, class: "form-control" %>
+    </div>
+
+    <%= form.submit 'Guardar', class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to 'Volver', machineries_path, class: 'btn btn-secondary mt-3' %>
+</div>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
   <div class="container">
-    <%= link_to "Template", root_path, class: "navbar-brand fw-bold text-white" %>
+    <%= link_to "BD Adymat", root_path, class: "navbar-brand fw-bold text-white" %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -11,21 +11,34 @@
         <!-- Menú izquierdo -->
         <ul class="navbar-nav me-auto">
 
+          <!-- Dropdown Gestión -->
           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown">
-                <i class="bi bi-gear"></i> Gestión
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark shadow-sm">
-                
-                <li><%= link_to users_path, class: "dropdown-item" do %><i class="bi bi-person-lines-fill"></i> Usuarios<% end %></li>
-                
-                <li><%= link_to customers_path, class: "dropdown-item" do %><i class="bi bi-person-add"></i> Clientes<% end %></li>
-              </ul>
-            </li>
+            <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="bi bi-gear"></i> Gestión
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark shadow-sm">
+              <li><%= link_to users_path, class: "dropdown-item" do %>
+                <i class="bi bi-person-lines-fill"></i> Usuarios
+              <% end %></li>
+              <li><%= link_to customers_path, class: "dropdown-item" do %>
+                <i class="bi bi-person-add"></i> Clientes
+              <% end %></li>
+            </ul>
+          </li>
 
-          
+          <!-- Dropdown Operaciones -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="bi bi-wrench-adjustable-circle"></i> Operaciones
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark shadow-sm">
+              <li><%= link_to machineries_path, class: "dropdown-item" do %>
+                <i class="bi bi-list-ol"></i> Equipos
+              <% end %></li>
+            </ul>
+          </li>
+
         </ul>
-        
 
         <!-- Menú derecho: Usuario y Cerrar Sesión -->
         <ul class="navbar-nav">
@@ -34,7 +47,9 @@
               <i class="bi bi-person-circle"></i> <%= current_user.nombre %> <%= current_user.apellido %>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow-sm">
-              <li><div class="dropdown-item"><i class="bi bi-briefcase"></i> <%= current_user.cargo %></div></li>
+              <li>
+                <div class="dropdown-item"><i class="bi bi-briefcase"></i> <%= current_user.cargo %></div>
+              </li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <%= button_to logout_path, method: :delete, class: "dropdown-item text-danger fw-bold",
