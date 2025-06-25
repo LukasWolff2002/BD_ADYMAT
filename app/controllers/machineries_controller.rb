@@ -33,6 +33,11 @@ class MachineriesController < ApplicationController
   end
 
   def machinery_params
-    params.require(:machinery).permit(:nombre, :formato, :horas_por_mantencion, :valor_dia, :valor_semana, :valor_mes)
-  end
+  params.require(:machinery).permit(
+    :nombre, :formato, :horas_por_mantencion,
+    :horas_totales, :horas_disponibles,
+    :valor_dia, :valor_semana, :valor_mes
+  )
+end
+
 end

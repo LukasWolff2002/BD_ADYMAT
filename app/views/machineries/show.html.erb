@@ -4,10 +4,12 @@
   <p><strong>Nombre:</strong> <%= @machinery.nombre %></p>
   <p><strong>Formato:</strong> <%= @machinery.formato %></p>
   <p><strong>Horas por mantención:</strong> <%= @machinery.horas_por_mantencion %></p>
+  <p><strong>Horas totales:</strong> <%= @machinery.horas_totales %></p>
+  <p><strong>Horas disponibles:</strong> <%= @machinery.horas_disponibles %></p>
   <p><strong>Valor por día:</strong> <%= number_to_currency(@machinery.valor_dia, unit: "$") %></p>
   <p><strong>Valor por semana:</strong> <%= number_to_currency(@machinery.valor_semana, unit: "$") %></p>
   <p><strong>Valor por mes:</strong> <%= number_to_currency(@machinery.valor_mes, unit: "$") %></p>
 
   <%= link_to 'Volver', machineries_path, class: 'btn btn-secondary' %>
-  
+  <%= link_to 'Eliminar', machinery_path(@machinery), method: :delete, data: { confirm: '¿Seguro que deseas eliminar esta maquinaria?' }, class: 'btn btn-danger ms-2' %>
 </div>

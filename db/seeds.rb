@@ -41,12 +41,13 @@ Customer.create!([
   { nombre: "Servicios Forestales Sur", rut: "54.321.098-7" }
 ])
 
-# === Maquinarias ===
 Machinery.create!([
   {
     nombre: "Excavadora Komatsu PC210",
     formato: "Estándar",
     horas_por_mantencion: 250,
+    horas_totales: 3000,
+    horas_disponibles: 1500,
     valor_dia: 180000,
     valor_semana: 950000,
     valor_mes: 3500000
@@ -55,6 +56,8 @@ Machinery.create!([
     nombre: "Retroexcavadora Caterpillar 420F2",
     formato: "Compacta",
     horas_por_mantencion: 200,
+    horas_totales: 2500,
+    horas_disponibles: 1200,
     valor_dia: 140000,
     valor_semana: 800000,
     valor_mes: 2900000
@@ -63,10 +66,13 @@ Machinery.create!([
     nombre: "Plataforma Elevadora Genie GS-1930",
     formato: "Eléctrica",
     horas_por_mantencion: 150,
+    horas_totales: 2000,
+    horas_disponibles: 500,
     valor_dia: 90000,
     valor_semana: 480000,
     valor_mes: 1600000
   }
 ])
+
 
 puts "✅ Datos de prueba creados correctamente"

@@ -18,6 +18,16 @@
     </div>
 
     <div class="mb-3">
+      <%= form.label :horas_totales, class: "form-label" %>
+      <%= form.number_field :horas_totales, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :horas_disponibles, class: "form-label" %>
+      <%= form.number_field :horas_disponibles, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
       <%= form.label :valor_dia, class: "form-label" %>
       <%= form.number_field :valor_dia, class: "form-control" %>
     </div>

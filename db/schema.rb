@@ -25,6 +25,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_13_175327) do
     t.string "nombre"
     t.string "formato"
     t.integer "horas_por_mantencion"
+    t.integer "horas_totales"
+    t.integer "horas_disponibles"
     t.integer "valor_dia"
     t.integer "valor_semana"
     t.integer "valor_mes"
