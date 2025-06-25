@@ -10699,3 +10699,68 @@ Sent data QR_plataforma-elevadora-genie-gs-1930.png (1.6ms)
 Completed 200 OK in 66ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 35769)
 
 
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:44:40 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.6ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 31.4ms | Allocations: 30955)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 835)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 753)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | Allocations: 54658)
+Completed 200 OK in 110ms (Views: 48.2ms | ActiveRecord: 15.4ms | Allocations: 87952)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:44:41 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.2ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 48.2ms | Allocations: 29103)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 268)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 50.2ms | Allocations: 31626)
+Completed 200 OK in 55ms (Views: 50.7ms | ActiveRecord: 0.6ms | Allocations: 32985)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:44:41 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 52.9ms | Allocations: 29103)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 268)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 56.2ms | Allocations: 31626)
+Completed 200 OK in 62ms (Views: 56.9ms | ActiveRecord: 0.6ms | Allocations: 32989)
+
+
+Started GET "/machineries/3" for 127.0.0.1 at 2025-06-25 10:44:42 -0400
+Processing by MachineriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `current_user'
+  [1m[36mMachinery Load (0.3ms)[0m  [1m[34mSELECT "machineries".* FROM "machineries" WHERE "machineries"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/machineries_controller.rb:51:in `set_machinery'
+  Rendering layout layouts/application.html.erb
+  Rendering machineries/show.html.erb within layouts/application
+  Rendered machineries/show.html.erb within layouts/application (Duration: 43.9ms | Allocations: 29103)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 268)
+  Rendered layouts/_footer.html.erb (Duration: 0.6ms | Allocations: 507)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | Allocations: 31652)
+Completed 200 OK in 49ms (Views: 46.9ms | ActiveRecord: 0.8ms | Allocations: 33002)
+
+
