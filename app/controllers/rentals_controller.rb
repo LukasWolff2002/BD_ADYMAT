@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
 
   def index
-    @rentals = Rental.includes(:vehicle).all
+    @rentals = Rental.includes(:machinery).all
   end
 
   def show
@@ -44,7 +44,7 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit(:vehicle_id, :start_date, :end_date, :payment_method,
+    params.require(:rental).permit(:machinery_id, :start_date, :end_date, :payment_method,
                                    :payment_status, :observations, :discount, :freight, :total_amount)
   end
 end

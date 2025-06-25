@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Vehicle</th>
+      <th>Machinery</th>
       <th>Start Date</th>
       <th>End Date</th>
       <th>Total</th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @rentals.each do |rental| %>
       <tr>
-        <td><%= rental.vehicle.try(:name) %></td>
+        <td><%= rental.machinery.try(:name) %></td>
         <td><%= rental.start_date %></td>
         <td><%= rental.end_date %></td>
         <td><%= number_to_currency(rental.total_amount) %></td>

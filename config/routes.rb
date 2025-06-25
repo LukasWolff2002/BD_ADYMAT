@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :users
   resources :customers
   resources :machineries
+<<<<<<< HEAD
 
   get "qr/scan", to: "qr#scan", as: :qr_scan
 
@@ -28,5 +29,8 @@ Rails.application.routes.draw do
 
 
 
+=======
+  resources :rentals
+>>>>>>> ramaLucas
   resource :password, only: [:edit, :update]
 end

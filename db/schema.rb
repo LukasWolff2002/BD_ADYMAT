@@ -51,6 +51,21 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_25_140709) do
     t.index ["machinery_id"], name: "index_rentals_on_machinery_id"
   end
 
+  create_table "rentals", force: :cascade do |t|
+    t.bigint "machinery_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.string "payment_method"
+    t.string "payment_status"
+    t.text "observations"
+    t.decimal "discount", precision: 10, scale: 2
+    t.decimal "freight", precision: 10, scale: 2
+    t.decimal "total_amount", precision: 15, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["machinery_id"], name: "index_rentals_on_machinery_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "nombre"
     t.string "apellido"
