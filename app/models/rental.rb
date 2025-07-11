@@ -1,7 +1,8 @@
 class Rental < ApplicationRecord
   belongs_to :machinery
-
+  has_many :rental_segments, dependent: :destroy
   validate :rental_hours_do_not_exceed_availability
+  after_save :sync_total_amount
 
   private
 
@@ -14,5 +15,9 @@ class Rental < ApplicationRecord
     if rental_hours > machinery.horas_disponibles.to_i
       errors.add(:base, "La reserva excede las horas disponibles de esta maquinaria (#{machinery.horas_disponibles}h). Se requieren #{rental_hours}h.")
     end
+  end
+
+  def sync_total_amount
+    update_column(:total_amount, rental_segments.sum(&:total_amount))
   end
 end

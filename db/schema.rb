@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_25_140709) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_11_153631) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,8 +30,41 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_25_140709) do
     t.integer "valor_dia"
     t.integer "valor_semana"
     t.integer "valor_mes"
+    t.string "qr_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["qr_token"], name: "index_machineries_on_qr_token", unique: true
+  end
+
+  create_table "rental_segments", force: :cascade do |t|
+    t.bigint "rental_id", null: false
+    t.bigint "machinery_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.string "rate"
+    t.decimal "discount"
+    t.decimal "freight"
+    t.decimal "total_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["machinery_id"], name: "index_rental_segments_on_machinery_id"
+    t.index ["rental_id"], name: "index_rental_segments_on_rental_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.bigint "machinery_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.string "payment_method"
+    t.string "payment_status", default: "Pendiente"
+    t.text "observations"
+    t.decimal "discount", precision: 10, scale: 2
+    t.decimal "freight", precision: 10, scale: 2
+    t.decimal "total_amount", precision: 15, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "rental_completed"
+    t.index ["machinery_id"], name: "index_rentals_on_machinery_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +80,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_25_140709) do
     t.index ["rut"], name: "index_users_on_rut"
   end
 
+  add_foreign_key "rental_segments", "machineries"
+  add_foreign_key "rental_segments", "rentals"
   add_foreign_key "rentals", "machineries"
 end

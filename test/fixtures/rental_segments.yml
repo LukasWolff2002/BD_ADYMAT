@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rental: one
+  machinery: one
+  start_date: 2025-07-11
+  end_date: 2025-07-11
+  rate: MyString
+  discount: 9.99
+  freight: 9.99
+  total_amount: 9.99
+
+two:
+  rental: two
+  machinery: two
+  start_date: 2025-07-11
+  end_date: 2025-07-11
+  rate: MyString
+  discount: 9.99
+  freight: 9.99
+  total_amount: 9.99

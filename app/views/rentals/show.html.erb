@@ -1,13 +1,66 @@
 <h1>Detalles de arriendos</h1>
 
-<p><strong>Maquinaria:</strong> <%= @rental.machinery.try(:nombre) %></p>
-<p><strong>Fecha inicio:</strong> <%= @rental.start_date %></p>
-<p><strong>Fecha fin:</strong> <%= @rental.end_date %></p>
-<p><strong>Metodo de pago:</strong> <%= @rental.payment_method %></p>
-<p><strong>Estado de pago:</strong> <%= @rental.payment_status %></p>
-<p><strong>Descuento:</strong> <%= number_to_currency(@rental.discount) %></p>
-<p><strong>Flete:</strong> <%= number_to_currency(@rental.freight) %></p>
-<p><strong>Total:</strong> <%= number_to_currency(@rental.total_amount) %></p>
-<p><strong>Observaciones:</strong> <%= simple_format(@rental.observations) %></p>
-
+<% if @rental.payment_status == "Pagado" %>
+  <%= button_to "Marcar como no pagado", mark_as_unpaid_rental_path(@rental), method: :patch, data: { confirm: "¿Estás seguro de que deseas marcar este arriendo como NO pagado?" } %>
+<% else %>
+  <%= button_to "Marcar como pagado", mark_as_paid_rental_path(@rental), method: :patch, data: { confirm: "¿Estás seguro de que deseas marcar este arriendo como pagado?" } %>
+<% end %>
+<div>
+    <%= link_to "Cambiar maquinaria", change_machinery_rental_path(@rental), class: "btn" %>
+</div>
+<% if @rental.rental_segments.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Maquinaria</th>
+        <th>Inicio</th>
+        <th>Fin</th>
+        <th>Tarifa</th>
+        <th>Descuento</th>
+        <th>Flete</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rental.rental_segments.order(:start_date).each do |segment| %>
+        <tr>
+          <td><%= segment.machinery.try(:nombre) %></td>
+          <td><%= segment.start_date %></td>
+          <td><%= segment.end_date %></td>
+          <td><%= segment.rate %></td>
+          <td><%= number_to_percentage(segment.discount, precision: 1) %></td>
+          <td><%= number_to_currency(segment.freight) %></td>
+          <td><%= number_to_currency(segment.total_amount) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No hay segmentos registrados para este arriendo.</p>
+<% end %>
 <%= link_to 'Volver', rentals_path %>
+<% if @rental.rental_completed == "True" %>
+    <%= button_to "Terminar arriendo", "#", id: "show-finish-form", method: :get %>
+<% end %>
+
+<div id="finish-form" style="display: none; margin-top: 20px;">
+  <%= form_with model: @rental, url: finish_rental_path(@rental), method: :patch, local: true do |f| %>
+    <div>
+      <%= f.label :observations, "Observaciones" %><br>
+      <%= f.text_area :observations, rows: 5, style: "width: 100%;" %>
+    </div>
+    <div style="margin-top: 10px;">
+      <%= f.submit "Confirmar término", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("show-finish-form").addEventListener("click", (e) => {
+      e.preventDefault();
+      document.getElementById("finish-form").style.display = "block";
+    });
+  });
+</script>
+

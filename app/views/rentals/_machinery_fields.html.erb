@@ -1,72 +1,49 @@
-<%= form_with(model: rental, local: true) do |form| %>
-  <% if rental.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(rental.errors.count, "error") %> impidieron guardar el arriendo:</h2>
-      <ul>
-        <% rental.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<button type="button" id="toggle-selection-mode" style="margin-bottom: 10px;">
+  Escanear QR de maquinaria
+</button>
 
-  <button type="button" id="toggle-selection-mode" style="margin-bottom: 10px;">
-    Escanear QR de maquinaria
-  </button>
+<!-- Selección manual -->
+<div id="select_machinery_section">
+  <%= form.label :machinery_id, "Maquinaria" %>
+  <%= form.collection_select :machinery_id, Machinery.all, :id, :nombre, { prompt: "Seleccione una maquinaria" }, { id: "rental_machinery_id" } %>
+</div>
 
-  <!-- Selección manual -->
-  <div id="select_machinery_section">
-    <%= form.label :machinery_id, "Maquinaria" %>
-    <%= form.collection_select :machinery_id, Machinery.all, :id, :nombre, { prompt: "Seleccione una maquinaria" }, { id: "rental_machinery_id" } %>
-  </div>
+<!-- Escaneo QR -->
+<div id="qr_machinery_section" style="display: none;">
+  <label>Escanear código QR:</label>
+  <div id="qr-reader" style="width: 300px;"></div>
+  <div id="qr-result" style="color: green; font-weight: bold;"></div>
+</div>
 
-  <!-- Escaneo QR -->
-  <div id="qr_machinery_section" style="display: none;">
-    <label>Escanear código QR:</label>
-    <div id="qr-reader" style="width: 300px;"></div>
-    <div id="qr-result" style="color: green; font-weight: bold;"></div>
-  </div>
-  <div>
-    <%= form.label :fecha_inicio %>
-    <%= form.date_field :start_date %>
-  </div>
+<div>
+  <%= form.label :start_date, "Fecha de inicio" %>
+  <%= form.date_field :start_date %>
+</div>
 
-  <div>
-    <%= form.label :fecha_fin %>
-    <%= form.date_field :end_date %>
-  </div>
+<div>
+  <%= form.label :end_date, "Fecha de término" %>
+  <%= form.date_field :end_date %>
+</div>
 
-  <div id="rental_warning" style="color: red; font-weight: bold;"></div>
+<div>
+  <%= form.label :tarifa %>
+  <%= form.select :rate, ["Día", "Semana", "Mes"], prompt: "Seleccione una tarifa" %>
+</div>
 
-  <div>
-    <%= form.label :metodo_de_pago %>
-    <%= form.select :payment_method, ["Efectivo", "Transferencia", "Factura", "Debito", "Boleta"], prompt: "Seleccione un medio de pago" %>
-  </div>
+<div>
+  <%= form.label :discount, "Descuento (%)" %>
+  <%= form.number_field :discount, step: 0.01, min: 0, id: "rental_discount" %>
+</div>
 
-  <div>
-    <%= form.label :tarifa %>
-    <%= form.select :rate, ["Día", "Semana", "Mes"], prompt: "Seleccione una tarifa" %>
-  </div>
+<div>
+  <%= form.label :freight, "Flete ($)" %>
+  <%= form.number_field :freight, step: 0.01, min: 0, id: "rental_freight" %>
+</div>
 
-  <div>
-    <%= form.label :descuento %>
-    <%= form.number_field :discount, step: 0.01 %>
-  </div>
-
-  <div>
-    <%= form.label :flete %>
-    <%= form.number_field :freight, step: 0.01 %>
-  </div>
-
-  <div>
-    <%= form.label :total %>
-    <%= form.number_field :total_amount, step: 0.01, readonly: true, style: "background-color: #f9f9f9;" %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<div>
+  <%= form.label :total_amount, "Total" %>
+  <%= form.number_field :total_amount, step: 0.01, readonly: true, style: "background-color: #f9f9f9;", id: "rental_total_amount" %>
+</div>
 
 <!-- Scripts -->
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>

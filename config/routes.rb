@@ -18,7 +18,15 @@ Rails.application.routes.draw do
   resources :users
   resources :customers
   resources :machineries
-  resources :rentals
+  resources :rentals do
+    member do
+      patch :finish
+      patch :mark_as_paid
+      patch :mark_as_unpaid
+      get :change_machinery
+      patch :update_machinery
+    end
+  end
 
   get "qr/scan", to: "qr#scan", as: :qr_scan
 

@@ -1,0 +1,8 @@
+<h1>Cambiar maquinaria del arriendo</h1>
+
+<%= form_with model: @rental, url: update_machinery_rental_path(@rental), method: :patch, local: true do |form| %>
+  <%= render partial: "machinery_fields", locals: { form: form } %>
+  <%= form.submit "Actualizar arriendo" %>
+<% end %>
+
+<%= link_to "Cancelar", rental_path(@rental) %>
